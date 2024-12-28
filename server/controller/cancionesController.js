@@ -1,8 +1,9 @@
 let Cancion = require('../model/canciones');
 
+
 exports.prueba = async (req, res) => {
     try {
-        res.status(200).send('HOLA SERVER');
+        res.status(200).send('HOLA SERVER DESDE CANCIONES CONTROLLER');
     } catch (error) {
         console.error(error);
         res.status(500).json("Error en el servidor");
