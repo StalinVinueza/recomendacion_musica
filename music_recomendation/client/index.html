@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Recomendation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div id="agregarCancionDiv">
+        <h2>Agregar Canción</h2>
+        <input type="text" id="nombre_cancion" placeholder="Nombre de la canción" maxlength="30" pattern="[A-Za-zÁáÉéÍíÓóÚúÑñ\s]+" title="Solo se permiten letras y espacios" required>
+        <input type="text" id="artista_cancion" placeholder="Ingrese el nombre del artista" maxlength="30" pattern="[A-Za-zÁáÉéÍíÓóÚúÑñ\s]+" title="Solo se permiten letras y espacios" required>
+        <input type="text" id="url_cancion" placeholder="Ingrese la URL de la canción" pattern="^(https?://)(www\.)?(youtube\.com|youtu\.be)/.*$" title="Debe ser una URL válida de YouTube (www.youtube.com o m.youtube.com)" required>
+        
+        <button id="agregarCancion">Agregar Canción</button>
+    </div>
+
+    <div id="cancionAleatoriaDiv">
+        <button id="cancionAleatoriaButton">Obtener Canción Aleatoria</button>
+        <div id="cancionAleatoriaResult"></div>
+    </div>
+
+    <div id="cancionesList">
+        <!-- Aquí se cargarán las canciones -->
+    </div>
+
+</body>
+</html>
