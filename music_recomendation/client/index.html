@@ -1,31 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Recomendation</title>
+    <title>Music Recommendation</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+    
+    <!-- Incluir Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Incluir Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    // Llamada para cargar las canciones al inicio
+    cargarCanciones();
+    });
+    //ocultat el registro de cacnion
+    document.addEventListener("DOMContentLoaded", function () {
+    const toggleButton = document.getElementById("toggleButton");
+    const toggleDiv = document.getElementById("toggleDiv");
+
+    toggleButton.addEventListener("click", function () {
+        toggleDiv.classList.toggle("hidden");  // Alterna la clase 'hidden'
+    });
+});
+</script>
+
 <body>
+    <div class="main-container">
+        <div class="flex-containerheader">
+            <div class="flex-item">
+                <img src="/music_recomendation/client/images/imagenes-03.svg" alt="Descripción de la imagen" />
+            </div>
+            <div class="flex-item">
+                <img src="/music_recomendation/client/images/imagenes_Mesa de trabajo 1.svg" alt="Descripción de la imagen" />
+            </div>
+        </div>
 
-    <div id="agregarCancionDiv">
-        <h2>Agregar Canción</h2>
-        <input type="text" id="nombre_cancion" placeholder="Nombre de la canción" maxlength="30" pattern="[A-Za-zÁáÉéÍíÓóÚúÑñ\s]+" title="Solo se permiten letras y espacios" required>
-        <input type="text" id="artista_cancion" placeholder="Ingrese el nombre del artista" maxlength="30" pattern="[A-Za-zÁáÉéÍíÓóÚúÑñ\s]+" title="Solo se permiten letras y espacios" required>
-        <input type="text" id="url_cancion" placeholder="Ingrese la URL de la canción" pattern="^(https?://)(www\.)?(youtube\.com|youtu\.be)/.*$" title="Debe ser una URL válida de YouTube (www.youtube.com o m.youtube.com)" required>
-        
-        <button id="agregarCancion">Agregar Canción</button>
+        <div>
+            <button id="toggleButton">
+                <i class="bi bi-plus-circle"></i> Agregar Canción
+            </button> <!-- Botón con icono -->
+            <div class="flex-containernewsong hidden" id="toggleDiv">
+                <div>
+                    <input type="text" id="nombre_cancion" placeholder="Nombre de la canción" maxlength="30"
+                        pattern="[A-Za-zÁáÉéÍíÓóÚúÑñ\s]+" title="Solo se permiten letras y espacios" required>
+                    <input type="text" id="artista_cancion" placeholder="Ingrese el nombre del artista" maxlength="30"
+                        pattern="[A-Za-zÁáÉéÍíÓóÚúÑñ\s]+" title="Solo se permiten letras y espacios" required>
+                    <input type="text" id="url_cancion" placeholder="Ingrese la URL de la canción"
+                        pattern="^(https?://)(www\.)?(youtube\.com|youtu\.be)/.*$"
+                        title="Debe ser una URL válida de YouTube (www.youtube.com o m.youtube.com)" required>
+                    <button id="agregarCancion">
+                        <i class="bi bi-floppy"></i> Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex-container">
+            <div id="cancionAleatoriaDiv">
+                <button id="cancionAleatoriaButton">
+                    <i class="bi bi-shuffle"></i> Obtener Canción Aleatoria
+                </button>
+                <div id="cancionAleatoriaResult"></div>
+            </div>
+        </div>
+
+        <div class="flex-container">
+            <div id="cancionesList">
+                
+                <!-- Aquí se cargarán las canciones -->
+            </div>
+        </div>
     </div>
-
-    <div id="cancionAleatoriaDiv">
-        <button id="cancionAleatoriaButton">Obtener Canción Aleatoria</button>
-        <div id="cancionAleatoriaResult"></div>
-    </div>
-
-    <div id="cancionesList">
-        <!-- Aquí se cargarán las canciones -->
-    </div>
-
 </body>
+
 </html>

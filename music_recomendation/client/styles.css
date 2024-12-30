@@ -1,14 +1,89 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    background-image: url('/music_recomendation/client/images/imagenes-02.svg');
+    background-size: cover; /* Ajusta la imagen al tamaño de la pantalla */
+    background-position: center center; /* Centra la imagen en ambas direcciones */
+    background-attachment: fixed; /* La imagen permanece fija al hacer scroll */
+
+    display: flex; /* Flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    min-height: 100vh; /* Asegura que el contenido ocupe toda la altura de la ventana */
+    margin: 0; /* Elimina márgenes */
+    padding: 0; /* Elimina paddings */
 }
+
+.main-container {
+    display: flex;
+    align-items: center; /* Corrige el error de sintaxis */
+    flex-direction: column; /* Apila los elementos verticalmente */
+    gap: 20px; /* Espacio entre las secciones */
+    width: 90%; /* Ancho máximo */
+    max-width: 1200px; /* Limita el ancho del contenido */
+    padding: 20px; /* Añade espacio interno */
+}
+
+
+
+.flex-containerheader {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en filas */
+    justify-content: space-around; /* Espacio alrededor de los elementos */
+    align-items: stretch; /* Estira los elementos para que tengan la misma altura */
+    width: 90%; /* Ocupa el 90% del ancho de la pantalla */
+    
+    gap: 20px; /* Espacio entre los elementos */
+    
+    padding: 20px;
+    border-radius: 10px;
+ 
+}
+
+.flex-containernewsong {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en filas */
+    justify-content: space-around; /* Espacio alrededor de los elementos */
+    align-items: stretch; /* Estira los elementos para que tengan la misma altura */
+    width: 90%; /* Ocupa el 90% del ancho de la pantalla */
+    background-color: #ffffff; /* Fondo blanco */
+    gap: 20px; /* Espacio entre los elementos */
+    padding: 20px; /* Espacio interno */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    opacity: 1;
+    max-height: 500px;  /* Establece una altura máxima al contenedor */
+    overflow: hidden; /* Para evitar que el contenido desborde */
+    transition: opacity 0.5s ease, max-height 0.5s ease; 
+}
+
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en filas */
+    justify-content: space-around; /* Espacio alrededor de los elementos */
+    align-items: stretch; /* Estira los elementos para que tengan la misma altura */
+    width: 90%; /* Ocupa el 90% del ancho de la pantalla */
+    
+    gap: 20px; /* Espacio entre los elementos */
+    
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* Elementos individuales dentro del contenedor */
+.flex-item {
+    flex: 1 1 calc(33.33% - 20px); 
+    min-width: 200px; /* Ancho mínimo */
+    max-width: 800px; /* Ancho máximo */
+    height: 150px; /* Altura fija */
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    text-align: center;
+
+}
+
+/* Efectos al pasar el mouse */
+
 
 h2 {
     color: #333;
@@ -36,18 +111,22 @@ input {
 
 button {
     padding: 10px 15px;
-    background-color: #4CAF50;
+    background-color: #943371;
     color: white;
-    border: none;
-    border-radius: 4px;
+    border: 2px solid transparent; /* Añadido un borde transparente */
+    border-radius: 15px; /* Borde redondeado */
     cursor: pointer;
     font-size: 16px;
     margin-top: 10px;
+    transition: background-color 0.3s ease, border-radius 0.3s ease, border 0.3s ease; /* Transición añadida para borde */
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #7A3160;
+    border-radius: 15px; /* Aumentando el radio del borde */
+    border: 2px solid #7A3160; /* Agregar un borde visible al hacer hover */
 }
+
 
 #cancionAleatoriaDiv p {
     margin: 10px 0;
@@ -68,12 +147,32 @@ button:hover {
     width: 200px;
     text-align: center;
 }
+.cancionCard img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
 
 .cancionCard p {
     margin: 5px 0;
 }
 
 .cancionCard a {
-    color: #4CAF50;
+    color: #204548;
     text-decoration: none;
 }
+
+/* Ocultar el div por defecto */
+.hidden {
+    opacity: 0;
+    max-height: 0;;
+}
+
+#toggleButton {
+    margin-left: auto; /* Empuja el botón hacia la derecha */
+    display: block; /* Asegura que el botón sea un bloque para que funcione el margin-left */
+}
+
+
+
